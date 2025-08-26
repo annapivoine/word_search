@@ -1,4 +1,3 @@
-# words_service.py
 import re, argparse, unicodedata
 from functools import lru_cache
 from typing import Iterable
@@ -16,7 +15,7 @@ def load_words():
             w = _norm(line.strip())
             if w:
                 words.append((w, w.lower(), len(w)))
-    return words  # list of tuples: (orig, lower, length)
+    return words
 
 def _filter_iter(
     startswith: str|None,
@@ -61,7 +60,6 @@ def search(
             break
     return out
 
-# --- CLI ---
 def main():
     ap = argparse.ArgumentParser(description="Search Belarusian words from slovy.txt")
     ap.add_argument("--startswith")
